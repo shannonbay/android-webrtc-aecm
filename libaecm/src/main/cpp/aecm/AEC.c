@@ -18,7 +18,7 @@ const char* TAG = "AECM_LOG";
  *         other values: created AECM instance handler.
  *
  */
-JNIEXPORT jlong JNICALL Java_ru_theeasiestway_libaecm_AEC_nativeCreateAecmInstance(JNIEnv *env, jclass thiz) {
+JNIEXPORT jlong JNICALL Java_com_github_shannonbay_libaecm_AEC_nativeCreateAecmInstance(JNIEnv *env, jclass thiz) {
 	void *aecmInstHandler = NULL;
 	if (WebRtcAecm_Create(&aecmInstHandler) == -1)
 		return -1;
@@ -37,7 +37,7 @@ JNIEXPORT jlong JNICALL Java_ru_theeasiestway_libaecm_AEC_nativeCreateAecmInstan
  *                 -1: error
  *
  */
-JNIEXPORT jint JNICALL Java_ru_theeasiestway_libaecm_AEC_nativeFreeAecmInstance(JNIEnv *env, jclass thiz, jlong aecmHandler) {
+JNIEXPORT jint JNICALL Java_com_github_shannonbay_libaecm_AEC_nativeFreeAecmInstance(JNIEnv *env, jclass thiz, jlong aecmHandler) {
 	void *aecmInst = (void *) aecmHandler;
 	if (aecmInst == NULL)
 		return -1;
@@ -58,7 +58,7 @@ JNIEXPORT jint JNICALL Java_ru_theeasiestway_libaecm_AEC_nativeFreeAecmInstance(
  *                  -1: error
  *
  */
-JNIEXPORT jint JNICALL Java_ru_theeasiestway_libaecm_AEC_nativeInitializeAecmInstance(JNIEnv *env, jclass thiz, jlong aecmHandler, jint sampFreq) {
+JNIEXPORT jint JNICALL Java_com_github_shannonbay_libaecm_AEC_nativeInitializeAecmInstance(JNIEnv *env, jclass thiz, jlong aecmHandler, jint sampFreq) {
 	void *aecmInst = (void *) aecmHandler;
 	if (aecmInst == NULL)
 		return -1;
@@ -78,7 +78,7 @@ JNIEXPORT jint JNICALL Java_ru_theeasiestway_libaecm_AEC_nativeInitializeAecmIns
  *             -1: error
  *
  */
-JNIEXPORT jint JNICALL Java_ru_theeasiestway_libaecm_AEC_nativeBufferFarend(JNIEnv *env, jclass thiz, jlong aecmHandler, jshortArray farend, jint nrOfSamples) {
+JNIEXPORT jint JNICALL Java_com_github_shannonbay_libaecm_AEC_nativeBufferFarend(JNIEnv *env, jclass thiz, jlong aecmHandler, jshortArray farend, jint nrOfSamples) {
 
     LOGD(TAG, "nativeBufferFarend() nrOfSamples: %d", nrOfSamples);
 
@@ -117,7 +117,7 @@ JNIEXPORT jint JNICALL Java_ru_theeasiestway_libaecm_AEC_nativeBufferFarend(JNIE
  *
  */
 
-JNIEXPORT jshortArray JNICALL Java_ru_theeasiestway_libaecm_AEC_nativeAecmProcess(JNIEnv *env, jclass thiz, jlong aecmHandler, const jshortArray nearendNoisy, const jshortArray nearendClean, jshort nrOfSamples, jshort msInSndCardBuf) {
+JNIEXPORT jshortArray JNICALL Java_com_github_shannonbay_libaecm_AEC_nativeAecmProcess(JNIEnv *env, jclass thiz, jlong aecmHandler, const jshortArray nearendNoisy, const jshortArray nearendClean, jshort nrOfSamples, jshort msInSndCardBuf) {
 
     LOGD(TAG, "nativeAecmProcess() nrOfSamples: %d; delay: %d", nrOfSamples, msInSndCardBuf);
 
@@ -177,7 +177,7 @@ JNIEXPORT jshortArray JNICALL Java_ru_theeasiestway_libaecm_AEC_nativeAecmProces
  *             -1: error
  *
  */
-JNIEXPORT jint JNICALL Java_ru_theeasiestway_libaecm_AEC_nativeSetConfig(JNIEnv *env, jclass thiz, jlong aecmHandler, jobject aecmConfig) {
+JNIEXPORT jint JNICALL Java_com_github_shannonbay_libaecm_AEC_nativeSetConfig(JNIEnv *env, jclass thiz, jlong aecmHandler, jobject aecmConfig) {
 
 	void * aecmInst = (void *) aecmHandler;
 	if (aecmInst == NULL)

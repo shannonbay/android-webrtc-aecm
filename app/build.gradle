@@ -1,9 +1,13 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
 
 android {
+    namespace 'com.github.shannonbay'
     compileSdkVersion 28
     defaultConfig {
-        applicationId 'ru.theeasiestway.aecm'
+        applicationId 'com.github.shannonbay'
         minSdkVersion 14
         targetSdkVersion 28
         versionCode 1
@@ -18,6 +22,12 @@ android {
     compileOptions {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
     }
 }
 

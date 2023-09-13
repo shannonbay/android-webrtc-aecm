@@ -1,8 +1,15 @@
 apply plugin: 'com.android.library'
+apply plugin: 'org.jetbrains.kotlin.android'
 
 android {
+    namespace = "com.github.shannonbay.libaecm"
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
     compileSdkVersion 28
 
+    ndkVersion "22.1.7171670"
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 28
@@ -17,9 +24,9 @@ android {
                 cppFlags "-std=c++11 -frtti -fexceptions"
             }
 
-            ndk {
+            /*ndk {
                 abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
-            }
+            }*/
         }
     }
 
@@ -32,7 +39,7 @@ android {
     externalNativeBuild {
         cmake {
             path "src/main/cpp/CMakeLists.txt"
-            version "3.10.2"
+            version "3.22.1"
         }
     }
     compileOptions {

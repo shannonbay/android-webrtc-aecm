@@ -1,4 +1,4 @@
-package ru.theeasiestway.aecm.voice;
+package com.github.shannonbay.voice;
 
 import android.media.AudioFormat;
 import android.media.AudioManager;
