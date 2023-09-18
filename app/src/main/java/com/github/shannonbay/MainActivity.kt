@@ -163,7 +163,7 @@ class MainActivity : AppCompatActivity() {
     private fun play() {
         if (enableAecm) aec.setSampFreq(if (seekBarSampleRate!!.progress == 0) AEC.SamplingFrequency.FS_8000Hz else AEC.SamplingFrequency.FS_16000Hz)
         if (enableAecm) aec.setAecmMode(aggressiveMode)
-        voiceRecorder!!.start(SAMPLE_RATE, FRAME_SIZE)
+        voiceRecorder!!.start(SAMPLE_RATE, FRAME_SIZE, applicationContext)
         voicePlayer!!.start(SAMPLE_RATE)
         stop = false
         Thread {
